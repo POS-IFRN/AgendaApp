@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="AgendaApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AgendaApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Contatos" Margin="4" FontSize="24px"/>
+        <ListView Name="listView" Margin="4" Grid.Row="1" DoubleTapped="listView_DoubleTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontSize="20" Text="{Binding Nome}" />
+                        <TextBlock FontSize="28" Text="{Binding Fone}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <CommandBar Grid.Row="2">
+            <AppBarButton Icon="Add" Label="Novo" Click="btnNovo_Click" />
+            <AppBarButton Icon="Save" Label="Salvar" Click="btnSalvar_Click" />
+        </CommandBar>
+    </Grid>
+</Page>
